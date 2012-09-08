@@ -2,34 +2,34 @@
 (defmacro with-face (str &rest properties)
   `(propertize ,str 'face (list ,@properties)))
 
-(defun sl/make-header ()
+(defun ph/make-header ()
   ""
-  (let* ((sl/full-header (abbreviate-file-name buffer-file-name))
-         (sl/header (file-name-directory sl/full-header))
-         (sl/drop-str "[...]"))
-    (if (> (length sl/full-header)
+  (let* ((ph/full-header (abbreviate-file-name buffer-file-name))
+         (ph/header (file-name-directory ph/full-header))
+         (ph/drop-str "[...]"))
+    (if (> (length ph/full-header)
            (window-body-width))
-        (if (> (length sl/header)
+        (if (> (length ph/header)
                (window-body-width))
             (progn
-              (concat (with-face sl/drop-str
+              (concat (with-face ph/drop-str
                                  :background "blue"
                                  :weight 'bold
                                  )
-                      (with-face (substring sl/header
-                                            (+ (- (length sl/header)
+                      (with-face (substring ph/header
+                                            (+ (- (length ph/header)
                                                   (window-body-width))
-                                               (length sl/drop-str))
-                                            (length sl/header))
+                                               (length ph/drop-str))
+                                            (length ph/header))
                                  ;; :background "red"
                                  :weight 'bold
                                  )))
-          (concat (with-face sl/header
+          (concat (with-face ph/header
                              ;; :background "red"
                              :foreground "#8fb28f"
                              :weight 'bold
                              )))
-      (concat (with-face sl/header
+      (concat (with-face ph/header
                          ;; :background "green"
                          ;; :foreground "black"
                          :weight 'bold
@@ -40,16 +40,16 @@
                          ;; :background "red"
                          )))))
 
-(defun sl/display-header ()
+(defun ph/display-header ()
   (setq header-line-format
         '("" ;; invocation-name
           (:eval (if (buffer-file-name)
-                     (sl/make-header)
+                     (ph/make-header)
                    "%b")))))
 
 
 
 (add-hook 'buffer-list-update-hook
-          'sl/display-header)
+          'ph/display-header)
 
 (provide 'path-headerline-mode)
