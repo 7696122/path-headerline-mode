@@ -9,8 +9,8 @@
 ;; Last-Updated: Sat Sep  8 11:44:33 2012 (+0900)
 ;;           By: 7696122
 ;;     Update #: 1
-;; URL:
-;; Keywords:
+;; URL: https://github.com/7696122/path-headline-mode
+;; Keywords: headerline
 ;; Compatibility:
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
