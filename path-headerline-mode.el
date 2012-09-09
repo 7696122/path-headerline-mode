@@ -1,14 +1,14 @@
 ;;; path-headerline-mode.el ---
 ;;
 ;; Filename: path-headerline-mode.el
-;; Description:
+;; Description: Displaying file path on headerline.
 ;; Author: 7696122
-;; Maintainer:
+;; Maintainer: 7696122
 ;; Created: Sat Sep  8 11:44:11 2012 (+0900)
 ;; Version: 0.1
-;; Last-Updated: Sun Sep  9 22:52:15 2012 (+0900)
+;; Last-Updated: Sun Sep  9 23:04:18 2012 (+0900)
 ;;           By: 7696122
-;;     Update #: 2
+;;     Update #: 3
 ;; URL: https://github.com/7696122/path-headline-mode
 ;; Keywords: headerline
 ;; Compatibility:
