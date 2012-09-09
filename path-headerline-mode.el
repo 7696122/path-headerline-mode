@@ -6,9 +6,9 @@
 ;; Maintainer:
 ;; Created: Sat Sep  8 11:44:11 2012 (+0900)
 ;; Version: 0.1
-;; Last-Updated: Sat Sep  8 11:44:33 2012 (+0900)
+;; Last-Updated: Sun Sep  9 22:52:15 2012 (+0900)
 ;;           By: 7696122
-;;     Update #: 1
+;;     Update #: 2
 ;; URL: https://github.com/7696122/path-headline-mode
 ;; Keywords: headerline
 ;; Compatibility:
@@ -17,7 +17,16 @@
 ;;
 ;;; Commentary:
 ;;
+;; `Path headerline mode' is mode for displaying file path on headerline.
+;; Modeline is too short to show filepath when split window by vertical.
+;; path-headerline-mode show full file path if window width is enough.
+;; but if window width is too short to show full file path, show directory path exclude file name.
 ;;
+;;; Installation
+;; Make sure "smart-mode-line.el" is in your load path, then place
+;; this code in your .emacs file:
+;;
+;; (require 'path-headerline-mode)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
