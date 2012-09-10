@@ -6,9 +6,9 @@
 ;; Maintainer: 7696122
 ;; Created: Sat Sep  8 11:44:11 2012 (+0900)
 ;; Version: 0.1
-;; Last-Updated: Sun Sep  9 23:04:18 2012 (+0900)
+;; Last-Updated: Mon Sep 10 10:15:51 2012 (+0900)
 ;;           By: 7696122
-;;     Update #: 3
+;;     Update #: 4
 ;; URL: https://github.com/7696122/path-headline-mode
 ;; Keywords: headerline
 ;; Compatibility:
