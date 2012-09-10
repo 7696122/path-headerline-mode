@@ -1,4 +1,4 @@
-;;; path-headerline-mode.el ---
+;;; path-headerline-mode.el --- Displaying file path on headerline.
 ;;
 ;; Filename: path-headerline-mode.el
 ;; Description: Displaying file path on headerline.
