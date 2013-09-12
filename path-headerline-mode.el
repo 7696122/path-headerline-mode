@@ -6,9 +6,9 @@
 ;; Maintainer: 7696122
 ;; Created: Sat Sep  8 11:44:11 2012 (+0900)
 ;; Version: 0.1
-;; Last-Updated: Mon Sep 10 10:15:51 2012 (+0900)
+;; Last-Updated: Fri Sep 13 07:13:38 2013 (+0900)
 ;;           By: 7696122
-;;     Update #: 4
+;;     Update #: 5
 ;; URL: https://github.com/7696122/path-headline-mode
 ;; Keywords: headerline
 ;; Compatibility:
@@ -23,7 +23,7 @@
 ;; but if window width is too short to show full file path, show directory path exclude file name.
 ;;
 ;;; Installation
-;; Make sure "smart-mode-line.el" is in your load path, then place
+;; Make sure "path-headerline-mode.el" is in your load path, then place
 ;; this code in your .emacs file:
 ;;
 ;; (require 'path-headerline-mode)
