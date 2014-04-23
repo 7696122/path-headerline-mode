@@ -6,9 +6,9 @@
 ;; Maintainer: 7696122
 ;; Created: Sat Sep  8 11:44:11 2012 (+0900)
 ;; Version: 0.0.2
-;; Last-Updated: Wed Apr 23 22:15:27 2014 (+0900)
+;; Last-Updated: Wed Apr 23 22:29:19 2014 (+0900)
 ;;           By: 7696122
-;;     Update #: 28
+;;     Update #: 45
 ;; URL: https://github.com/7696122/path-headerline-mode
 ;; Keywords: headerline
 ;; Compatibility:
@@ -28,6 +28,7 @@
 ;;
 ;; (require 'path-headerline-mode)
 ;; (path-headerline-mode +1)
+;;
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -56,7 +57,7 @@
 ;;; Code:
 
 
-(defmacro with-face (str &rest properties)
+(defmacro ph--with-face (str &rest properties)
   `(propertize ,str 'face (list ,@properties)))
 
 (defun ph--make-header ()
@@ -69,22 +70,22 @@
         (if (> (length ph--header)
                (window-body-width))
             (progn
-              (concat (with-face ph--drop-str
+              (concat (ph--with-face ph--drop-str
                                  :background "blue"
                                  :weight 'bold)
-                      (with-face (substring ph--header
+                      (ph--with-face (substring ph--header
                                             (+ (- (length ph--header)
                                                   (window-body-width))
                                                (length ph--drop-str))
                                             (length ph--header))
                                  :weight 'bold)))
-          (concat (with-face ph--header
+          (concat (ph--with-face ph--header
                              :foreground "#8fb28f"
                              :weight 'bold)))
-      (concat (with-face ph--header
+      (concat (ph--with-face ph--header
                          :weight 'bold
                          :foreground "#8fb28f")
-              (with-face (file-name-nondirectory buffer-file-name)
+              (ph--with-face (file-name-nondirectory buffer-file-name)
                          :weight 'bold)))))
 
 (defun ph--display-header ()
@@ -94,6 +95,14 @@
           (:eval (if (buffer-file-name)
                      (ph--make-header)
                    "%b")))))
+
+(defun path-header-line-on ()
+  (interactive)
+  (ph--display-header))
+
+(defun path-header-line-off ()
+  (interactive)
+  (setq header-line-format nil))
 
 ;;;###autoload
 (define-minor-mode path-headerline-mode
