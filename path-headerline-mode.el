@@ -6,9 +6,9 @@
 ;; Maintainer: 7696122
 ;; Created: Sat Sep  8 11:44:11 2012 (+0900)
 ;; Version: 0.0.2
-;; Last-Updated: Wed Apr 23 22:12:17 2014 (+0900)
+;; Last-Updated: Wed Apr 23 22:15:27 2014 (+0900)
 ;;           By: 7696122
-;;     Update #: 27
+;;     Update #: 28
 ;; URL: https://github.com/7696122/path-headerline-mode
 ;; Keywords: headerline
 ;; Compatibility:
@@ -27,6 +27,7 @@
 ;; this code in your .emacs file:
 ;;
 ;; (require 'path-headerline-mode)
+;; (path-headerline-mode +1)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
