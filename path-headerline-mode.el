@@ -6,9 +6,9 @@
 ;; Maintainer: 7696122
 ;; Created: Sat Sep  8 11:44:11 2012 (+0900)
 ;; Version: 0.0.2
-;; Last-Updated: Wed Apr 23 22:29:19 2014 (+0900)
+;; Last-Updated: Wed Apr 23 22:32:03 2014 (+0900)
 ;;           By: 7696122
-;;     Update #: 45
+;;     Update #: 47
 ;; URL: https://github.com/7696122/path-headerline-mode
 ;; Keywords: headerline
 ;; Compatibility:
@@ -97,10 +97,12 @@
                    "%b")))))
 
 (defun path-header-line-on ()
+  "Display path on headerline for current buffer."
   (interactive)
   (ph--display-header))
 
 (defun path-header-line-off ()
+  "Undisplay path on headerline for current buffer."
   (interactive)
   (setq header-line-format nil))
 
