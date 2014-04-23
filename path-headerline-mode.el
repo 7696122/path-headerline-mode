@@ -5,11 +5,11 @@
 ;; Author: 7696122
 ;; Maintainer: 7696122
 ;; Created: Sat Sep  8 11:44:11 2012 (+0900)
-;; Version: 0.1
-;; Last-Updated: Fri Sep 13 07:13:38 2013 (+0900)
+;; Version: 0.0.2
+;; Last-Updated: Wed Apr 23 22:12:17 2014 (+0900)
 ;;           By: 7696122
-;;     Update #: 5
-;; URL: https://github.com/7696122/path-headline-mode
+;;     Update #: 27
+;; URL: https://github.com/7696122/path-headerline-mode
 ;; Keywords: headerline
 ;; Compatibility:
 ;;
@@ -55,60 +55,54 @@
 ;;; Code:
 
 
-;; -*- mode: Emacs-Lisp; coding: utf-8 -*-
-
 (defmacro with-face (str &rest properties)
   `(propertize ,str 'face (list ,@properties)))
 
-(defun ph/make-header ()
+(defun ph--make-header ()
   ""
-  (let* ((ph/full-header (abbreviate-file-name buffer-file-name))
-         (ph/header (file-name-directory ph/full-header))
-         (ph/drop-str "[...]"))
-    (if (> (length ph/full-header)
+  (let* ((ph--full-header (abbreviate-file-name buffer-file-name))
+         (ph--header (file-name-directory ph--full-header))
+         (ph--drop-str "[...]"))
+    (if (> (length ph--full-header)
            (window-body-width))
-        (if (> (length ph/header)
+        (if (> (length ph--header)
                (window-body-width))
             (progn
-              (concat (with-face ph/drop-str
+              (concat (with-face ph--drop-str
                                  :background "blue"
-                                 :weight 'bold
-                                 )
-                      (with-face (substring ph/header
-                                            (+ (- (length ph/header)
+                                 :weight 'bold)
+                      (with-face (substring ph--header
+                                            (+ (- (length ph--header)
                                                   (window-body-width))
-                                               (length ph/drop-str))
-                                            (length ph/header))
-                                 ;; :background "red"
-                                 :weight 'bold
-                                 )))
-          (concat (with-face ph/header
-                             ;; :background "red"
+                                               (length ph--drop-str))
+                                            (length ph--header))
+                                 :weight 'bold)))
+          (concat (with-face ph--header
                              :foreground "#8fb28f"
-                             :weight 'bold
-                             )))
-      (concat (with-face ph/header
-                         ;; :background "green"
-                         ;; :foreground "black"
+                             :weight 'bold)))
+      (concat (with-face ph--header
                          :weight 'bold
-                         :foreground "#8fb28f"
-                         )
+                         :foreground "#8fb28f")
               (with-face (file-name-nondirectory buffer-file-name)
-                         :weight 'bold
-                         ;; :background "red"
-                         )))))
+                         :weight 'bold)))))
 
-(defun ph/display-header ()
+(defun ph--display-header ()
+  "Display path on headerline."
   (setq header-line-format
         '("" ;; invocation-name
           (:eval (if (buffer-file-name)
-                     (ph/make-header)
+                     (ph--make-header)
                    "%b")))))
 
-
-
-(add-hook 'buffer-list-update-hook
-          'ph/display-header)
+;;;###autoload
+(define-minor-mode path-headerline-mode
+  "Displaying file path on headerline."
+  :global t
+  :group 'path-headerline-mode
+  (if path-headerline-mode
+      (progn
+        (add-hook 'buffer-list-update-hook #'ph--display-header))
+    (remove-hook 'buffer-list-update-hook #'ph--display-header)))
 
 (provide 'path-headerline-mode)
 
